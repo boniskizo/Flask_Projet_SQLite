@@ -7,6 +7,10 @@ with open('schema2.sql') as f:
 
 cur = connection.cursor()
 
+#Création d'un utilisateur
+cur.execute("INSERT INTO Users (nom, email, mot_de_passe, role) VALUES (?, ?, ?, ?)",("Alice", "alice@factice.com", "1234567", "utilisateur")),
+cur.execute("INSERT INTO Users (nom, email, mot_de_passe, role) VALUES (?, ?, ?, ?)",("Jojo", "jojo@factice.com", "12345678", "administrateur")),
+
 #Création des livres de la Bibliothèques
 cur.execute("INSERT INTO Livres (titre, auteur, annee_publication, categorie, stock) VALUES (?, ?, ?, ?, ?)",("1984", "George Orwell", 1949, "Science-fiction", 5))
 cur.execute("INSERT INTO Livres (titre, auteur, annee_publication, categorie, stock) VALUES (?, ?, ?, ?, ?)",("Le Petit Prince", "Antoine de Saint-Exupéry", 1943, "Conte", 3))
