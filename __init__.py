@@ -85,7 +85,7 @@ def information_livres():
     cursor.execute('SELECT * FROM Livres;')
     data = cursor.fetchall()
     conn.close()
-    return render_template('infos_livres.html', data=data) # afficher les infos du livres
+    return render_template('informations_livres.html', data=data) # afficher les infos du livres
                                                                                                                                    
 if __name__ == "__main__":
   app.run(debug=True)
