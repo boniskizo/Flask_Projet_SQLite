@@ -80,12 +80,7 @@ def enregistrer_client():
 
 @app.route('/infos_livres')
 def information_livres():
-    conn = sqlite3.connect('library.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM Livres;')
-    data = cursor.fetchall()
-    conn.close()
-    return render_template('informations_livres.html', data=data) # afficher les infos du livres
+    return render_template('informations_livres.html') # afficher les infos du livres
                                                                                                                                    
 if __name__ == "__main__":
   app.run(debug=True)
