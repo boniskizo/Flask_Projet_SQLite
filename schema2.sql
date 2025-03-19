@@ -22,7 +22,7 @@ CREATE TABLE Emprunts (
     date_emprunt DATE NOT NULL,
     date_retour_prevue DATE NOT NULL,
     date_retour_effective DATE,
-    statut ENUM('emprunté', 'retourné', 'en retard') NOT NULL DEFAULT 'emprunté',
+    statut ENUM('En emprunt', 'Retour', 'en retard') NOT NULL DEFAULT 'En emprunt',
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
     FOREIGN KEY (livre_id) REFERENCES Livres(id) ON DELETE CASCADE
 );
