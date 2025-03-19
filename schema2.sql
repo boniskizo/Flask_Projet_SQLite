@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nom VARCHAR(100) NOT NULL,
@@ -6,6 +7,7 @@ CREATE TABLE Users (
     statut TEXT CHECK( statut IN ('user','admin' )) NOT NULL DEFAULT 'user'
 );
 
+DROP TABLE IF EXISTS Livres;
 CREATE TABLE Livres (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titre VARCHAR(255) NOT NULL,
@@ -15,6 +17,7 @@ CREATE TABLE Livres (
     stock INT NOT NULL DEFAULT 1
 );
 
+DROP TABLE IF EXISTS Emprunts;
 CREATE TABLE Emprunts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INT,
@@ -27,6 +30,7 @@ CREATE TABLE Emprunts (
     FOREIGN KEY (livre_id) REFERENCES Livres(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Notifications;
 CREATE TABLE Notifications (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INT,
@@ -35,6 +39,7 @@ CREATE TABLE Notifications (
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Recommandations;
 CREATE TABLE Recommandations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INT,
@@ -44,6 +49,7 @@ CREATE TABLE Recommandations (
     FOREIGN KEY (livre_id) REFERENCES Livres(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Statistiques;
 CREATE TABLE Statistiques (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     livre_id INT,
