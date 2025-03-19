@@ -8,8 +8,8 @@ with open('schema2.sql') as f:
 cur = connection.cursor()
 
 #Création d'un utilisateur
-cur.execute("INSERT INTO Users (nom, email, mot_de_passe, role) VALUES (?, ?, ?, ?)",("Alice", "alice@factice.com", "1234567", "user")),
-cur.execute("INSERT INTO Users (nom, email, mot_de_passe, role) VALUES (?, ?, ?, ?)",("Jojo", "jojo@factice.com", "12345678", "admin")),
+cur.execute("INSERT INTO Users (nom, email, mot_de_passe, statut) VALUES (?, ?, ?, ?)",("Alice", "alice@factice.com", "1234567", "user")),
+cur.execute("INSERT INTO Users (nom, email, mot_de_passe, statut) VALUES (?, ?, ?, ?)",("Jojo", "jojo@factice.com", "12345678", "admin")),
 
 #Création des livres de la Bibliothèques
 cur.execute("INSERT INTO Livres (titre, auteur, annee_publication, categorie, stock) VALUES (?, ?, ?, ?, ?)",("1984", "George Orwell", 1949, "Science-fiction", 5))
