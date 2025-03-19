@@ -86,6 +86,10 @@ def information_livres():
     data = cursor.fetchall()
     conn.close()
     return render_template('informations_livres.html', data=data) # afficher les infos du livres
-                                                                                                                                   
+
+@app.route('bibliotheque')
+def accueil_bibliotheque():
+    return render_template('accueil_bibliotheque.html')
+
 if __name__ == "__main__":
   app.run(debug=True)
