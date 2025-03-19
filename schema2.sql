@@ -1,5 +1,5 @@
 CREATE TABLE Utilisateurs (
-    id INT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     mot_de_passe VARCHAR(255) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE Utilisateurs (
 );
 
 CREATE TABLE Livres (
-    id INT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     titre VARCHAR(255) NOT NULL,
     auteur VARCHAR(255) NOT NULL,
     annee_publication INT,
@@ -16,7 +16,7 @@ CREATE TABLE Livres (
 );
 
 CREATE TABLE Emprunts (
-    id INT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     utilisateur_id INT,
     livre_id INT,
     date_emprunt DATE NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE Emprunts (
 );
 
 CREATE TABLE Notifications (
-    id INT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     utilisateur_id INT,
     message TEXT NOT NULL,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -36,7 +36,7 @@ CREATE TABLE Notifications (
 );
 
 CREATE TABLE Recommandations (
-    id INT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     utilisateur_id INT,
     livre_id INT,
     date_recommandation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -45,7 +45,7 @@ CREATE TABLE Recommandations (
 );
 
 CREATE TABLE Statistiques (
-    id INT PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     livre_id INT,
     nombre_emprunts INT DEFAULT 0,
     dernier_emprunt DATE,
