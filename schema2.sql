@@ -3,7 +3,7 @@ CREATE TABLE Users (
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     mot_de_passe VARCHAR(255) NOT NULL,
-    statut TEXT CHECK( statut IN ('user','admin' )   NOT NULL DEFAULT 'user'
+    statut TEXT CHECK( statut IN ('user','admin' ) NOT NULL DEFAULT 'user'
 );
 
 CREATE TABLE Livres (
