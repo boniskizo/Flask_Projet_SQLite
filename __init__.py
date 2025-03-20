@@ -89,7 +89,12 @@ def information_livres():
 
 @app.route('bibliotheque')
 def accueil_bibliotheque():
-    return render_template('accueil_bibliotheque.html')
+    conn = sqlite3.connect('library.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM Livres;')
+    data = cursor.fetchall()
+    conn.close()
+    return render_template('accueil_bibliotheque.html', data=data)
 
 if __name__ == "__main__":
   app.run(debug=True)

@@ -4,11 +4,60 @@
     <meta charset="UTF-8">
     <title>Bibliothèque BNS</title>
 </head>
+<script>
+    function choixUser(id) {
+            let infosLivres = document.getElementById("infosLivres");
+            let checkbox = document.getElementById(id);
+
+            if (checkbox.checked) {
+                if(id == "emprunt") {
+                    infosLivres.style.display = "block";
+                }
+                    
+            } else {
+                infosLivres.style.display = "none";
+            }
+        }
+</script>
+
 <body>
     <form> 
-        <input type="text" name=text" class="search" placeholder="Recherchez un livre">
+        <input type="text" name="text" class="search" placeholder="Recherchez un livre">
         <input type="submit" name="submit" class="submit" value="Search">
-      </form>
-      
+    </form>
+    
+    <fieldset>
+        <legend>Je souhaite :</legend>
+        <label>
+            <input type="checkbox" id="emprunt" onchange="choixUser(id)">Emprunter un livre
+        </label>
+        <label>
+            <input type="checkbox" id="ajout" onchange="choixUser(id)">Ajouter un livre
+        </label>
+    </fieldset>
+
+    
+    <fieldset id="infosLivres" style="display: none;">
+        <h3>Choisissez le livre que vous souhaitez emprunter</h3>
+        <table>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Année de publication</th>
+                <th>Catégorie</th>
+                <th>Stock</th>
+            </tr>
+            {% for i,row in data %}
+            <tr>
+                <td><input type="checkbox" id="livre"+i>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </fieldset>
+    
 </body>
 </html>
